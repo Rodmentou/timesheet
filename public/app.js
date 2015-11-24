@@ -9,8 +9,8 @@ app.controller('mainController', function ($scope) {
 
   $scope.setHoliday = function(holiday) {
     if ($scope.days) {
-      $scope.days[holiday.day+1].message = holiday.message;
-      $scope.days[holiday.day+1].valid = false;
+      $scope.days[holiday.day-1].message = holiday.message;
+      $scope.days[holiday.day-1].valid = false;
 
     }
   };
