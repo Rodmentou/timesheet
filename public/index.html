@@ -9,15 +9,19 @@
 
     table {
       border: solid;
+			border-collapse: collapse;
       page-break-after: always;
       width: 665px;
     }
-    td, th {
+    td, tr, th {
       border: 1px solid black;
+			border-collapse: collapse;
+			padding: 3px;
+			text-align: center;
     }
     #header {
       border: solid;
-      width: 665px;
+      width: 658px;
     }
 
     img {
@@ -33,7 +37,7 @@
     }
 
     @media print
-    {    
+    {
         .no-print, .no-print *
         {
             display: none !important;
@@ -42,7 +46,11 @@
 
 
   </style>
-
+	<script src='https://code.angularjs.org/1.4.7/angular.min.js'></script>
+	<script src='https://code.angularjs.org/1.4.7/angular-route.min.js'></script>
+	<script src='app.js'> </script>
+	<script src='https://code.jquery.com/jquery-2.1.4.min.js'> </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -52,12 +60,12 @@
   <form class="no-print">
 
     <div ng-if='!calendarCreated'>
-      Primeiro domingo em: <input type='number' ng-model='calendar.firstSunday'>
-      Número do mês: <input type='number' ng-model='calendar.monthNumber'>
-      Número de dias: <input type='number' ng-model='calendar.numDays'>
+      Mês: <select ng-options='month for month in months'
+										type='number' ng-model='calendar.monthName'></select><br>
       Ano: <input type='number' ng-model='calendar.year'>
       <button class='btn btn-success' ng-click='setCalendar(calendar)'>Solicitar</button>
     </div>
+		{{calendar.month}}
 
     <div ng-if='calendarCreated'>
       Feriado no dia: <input type='number' ng-model='holiday.day'>
@@ -71,8 +79,8 @@
 	<div ng-repeat='user in users | orderBy:"dpt"' ng-if='days'>
   <img src="logo.png" alt="Company logo">
     <div id='header'>
-      <b><h4>{{user.name}}</h4></b>
-      <h5>{{user.dpt}}: {{user.role}}. {{month}} de {{year}}.</h5>
+      <b><h4>{{user.nome}}</h4></b>
+      <h5>{{user.departamento}}: {{user.cargo}}. {{month}} de {{year}}.</h5>
     </div>
 
     <table>
@@ -100,10 +108,10 @@
 	          <td> {{day.message}}</td>
 	          <td> {{day.message}}</td>
 	          <td> {{day.message}}</td>
-	          <td> {{day.message}} </td>
+	          <td> {{day.message}}</td>
 					</div>
 					<div ng-if='!day.message'>
-						{{day.message}}
+
 					</div>
       </tr>
 
@@ -112,11 +120,7 @@
  	</div>
 
 
-	<script src='https://code.angularjs.org/1.4.7/angular.min.js'></script>
-	<script src='https://code.angularjs.org/1.4.7/angular-route.min.js'></script>
-	<script src='app.js'> </script>
-	<script src='https://code.jquery.com/jquery-2.1.4.min.js'> </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 
 
