@@ -1,0 +1,42 @@
+
+    table {
+      border: solid;
+			border-collapse: collapse;
+      page-break-after: always;
+      width: 665px;
+    }
+    td, tr, th {
+      border: 1px solid black;
+			border-collapse: collapse;
+			padding: 3px;
+			text-align: center;
+    }
+    td {
+      width: 10%;
+    }
+    #header {
+      border: solid;
+      width: 658px;
+    }
+
+    img {
+      float: left;
+      height: 90px;
+      width: 90px;
+      padding: 5px;
+      padding-right: 15px;
+      border: 5px;
+      page-break-inside: auto;
+    }
+
+    input {
+      display: block;
+    }
+
+    @media print
+    {
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }

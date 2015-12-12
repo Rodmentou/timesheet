@@ -5,47 +5,12 @@
 
 	<title>TimeSheet</title>
 
-  <style type='text/css'>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    table {
-      border: solid;
-			border-collapse: collapse;
-      page-break-after: always;
-      width: 665px;
-    }
-    td, tr, th {
-      border: 1px solid black;
-			border-collapse: collapse;
-			padding: 3px;
-			text-align: center;
-    }
-    #header {
-      border: solid;
-      width: 658px;
-    }
-
-    img {
-      float: left;
-      height: 90px;
-      width: 90px;
-      padding: 5px;
-      padding-right: 15px;
-    }
-
-    input {
-      display: block;
-    }
-
-    @media print
-    {
-        .no-print, .no-print *
-        {
-            display: none !important;
-        }
-    }
-
-
-  </style>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link rel='stylesheet' type='text/css' href='style.css'> </style>
 	<script src='https://code.angularjs.org/1.4.7/angular.min.js'></script>
 	<script src='https://code.angularjs.org/1.4.7/angular-route.min.js'></script>
 	<script src='app.js'> </script>
@@ -65,7 +30,6 @@
       Ano: <input type='number' ng-model='calendar.year'>
       <button class='btn btn-success' ng-click='setCalendar(calendar)'>Solicitar</button>
     </div>
-		{{calendar.month}}
 
     <div ng-if='calendarCreated'>
       Feriado no dia: <input type='number' ng-model='holiday.day'>
@@ -99,20 +63,18 @@
 
       <tr ng-repeat='day in days'>
           <td> {{day.number}} </td>
-					<div ng-if='day.message'>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-	          <td> {{day.message}}</td>
-					</div>
-					<div ng-if='!day.message'>
-
-					</div>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+	        <td ng-if='!day.message'> {{day.message}}</td>
+					<td colspan='9'ng-if='day.message'>
+						{{day.message}}
+					</td>
       </tr>
 
 

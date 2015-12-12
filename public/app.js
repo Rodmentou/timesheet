@@ -73,14 +73,15 @@ app.controller('mainController', function ($scope) {
     };
 
     for (var i = calendar.firstSunday-1; i < calendar.numDays; i+=7 ) {
+      $scope.days[i].message = undefined;
       $scope.days[i].valid = false;
-      $scope.days[i].message = 'Sunday';
+      $scope.days[i].message = 'Domingo';
       if (i > 1) {
-        $scope.days[i-1].message = 'Saturday';
+        $scope.days[i-1].message = 'Sábado';
       }
     };
 
-
+    console.log($scope.days);
   };
 
 
